@@ -1,0 +1,65 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "project_panel": {
+    "auto_fold_dirs": true,
+    "indent_size": 10,
+    "entry_spacing": "standard"
+  },
+  "git_panel": {
+    "tree_view": true
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "opencode": {
+      "type": "extension",
+      "default_mode": "Sisyphus"
+    }
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_smartcase_find": true,
+    "toggle_relative_line_numbers": true,
+    "use_system_clipboard": "always"
+  },
+  "cursor_blink": false,
+  "relative_line_numbers": "enabled",
+  "vertical_scroll_margin": 8,
+  "scroll_beyond_last_line": "off",
+  "command_aliases": {
+    "W": "w",
+    "Wq": "wq",
+    "Q": "q"
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-5"
+    },
+    "model_parameters": []
+  },
+  "icon_theme": "VSCode Icons for Zed (Dark)",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Dark",
+    "dark": "0x96f Theme"
+  }
+}

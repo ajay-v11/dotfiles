@@ -1,0 +1,10 @@
+keybinding:
+  universal:
+    # Unbind the default 'p' so it does nothing accidentally
+    pull: ""
+  files:
+    # Replace default pull/push keys with commands that ask for confirmation
+    pull:
+      command: 'bash -c ''read -p "Pull from remote? (y/N): " ans; [ "$ans" = y ] && git pull || echo Cancelled'''
+    push:
+      command: 'bash -c ''read -p "Push to remote? (y/N): " ans; [ "$ans" = y ] && git push || echo Cancelled'''

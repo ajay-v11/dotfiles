@@ -1,0 +1,136 @@
+[
+  // ============================================
+  // Zed keymap mirroring Ajay's Neovim config
+  // ============================================
+
+  // Normal & Visual mode (VimControl)
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Window/pane navigation (matching <C-h/j/k/l> from init.lua:198-201)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+
+  // Normal mode
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // Clear search highlight with <Esc> (init.lua:190)
+      "escape": "editor::Cancel",
+
+      // Neovim Y behavior: yank to end of line
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+
+      // Buffer/tab navigation (init.lua:214-215)
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // --- Leader key bindings (space = leader) ---
+
+      // Search/Find (Telescope equivalents from telescope.lua)
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space s d": "diagnostics::Deploy",
+      "space s k": "zed::OpenKeymap",
+      "space /": "buffer_search::Deploy",
+      "space space": "tab_switcher::Toggle",
+      "space s .": "projects::OpenRecent",
+
+      // Split management (init.lua:204-207)
+      "space s v": "pane::SplitRight",
+      "space s h": "pane::SplitDown",
+      "space s x": "pane::CloseActiveItem",
+
+      // LSP mappings (lsp.lua:36-45)
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+      "g shift-i": "editor::GoToImplementation",
+      "g shift-d": "editor::GoToDeclaration",
+      "space shift-d": "editor::GoToTypeDefinition",
+      "space d s": "outline::Toggle",
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+
+      // Trouble.nvim equivalents (trouble.lua)
+      "space q": "diagnostics::Deploy",
+      "space x x": "diagnostics::Deploy",
+      "space c s": "outline::Toggle",
+
+      // File explorer (like yazi/netrw)
+      "space e": "workspace::ToggleLeftDock",
+
+      // Terminal (matching common nvim workflow)
+      "space t t": "workspace::ToggleBottomDock",
+
+      // Toggle inlay hints (lsp.lua:70-72)
+      "space t h": "editor::ToggleInlayHints",
+
+      // Git (fugitive.lua equivalent)
+      "space g g": "git_panel::ToggleFocus",
+
+      // AI chat / right sidebar
+      "space a a": "workspace::ToggleRightDock"
+    }
+  },
+
+  // Insert mode
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // Quick escape with jk (common vim pattern)
+      "j k": "vim::NormalBefore",
+
+      // Cursor movement in insert mode (init.lua:210-211)
+      "ctrl-l": "editor::MoveRight",
+      "ctrl-h": "editor::MoveLeft"
+    }
+  },
+
+  // Visual mode
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // Surround with S in visual mode (nvim-surround equivalent)
+      "shift-s": "vim::PushAddSurrounds",
+
+      // Move lines up/down (init.lua:222-223)
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
+    }
+  },
+
+  // Dock navigation (terminal, panels, etc.)
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "space g g": "git_panel::ToggleFocus",
+      "space t t": "workspace::ToggleBottomDock",
+      "space e": "workspace::ToggleLeftDock",
+      "space a a": "workspace::ToggleRightDock"
+    }
+  },
+
+  // Global terminal toggle (VS Code-style ctrl+`)
+  {
+    "bindings": {
+      "ctrl-`": "workspace::ToggleBottomDock"
+    }
+  },
+
+  // Empty pane (when no file is open)
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space s f": "file_finder::Toggle",
+      "space e": "workspace::ToggleLeftDock"
+    }
+  }
+]

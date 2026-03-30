@@ -19,6 +19,9 @@
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
+      // Instant close tab with Ctrl+W (bypass vim window prefix)
+      "ctrl-w": "pane::CloseActiveItem",
+
       // Clear search highlight with <Esc> (init.lua:190)
       "escape": "editor::Cancel",
 

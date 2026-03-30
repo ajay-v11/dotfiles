@@ -16,6 +16,12 @@
     "tree_view": true
   },
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "amp-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     },
@@ -55,8 +61,10 @@
     "model_parameters": []
   },
   "icon_theme": "VSCode Icons for Zed (Dark)",
+  "ui_font_family": "Ubuntu Sans",
   "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "buffer_font_family": "Geist Mono",
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "One Dark",

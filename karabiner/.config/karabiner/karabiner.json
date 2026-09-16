@@ -96,6 +96,30 @@
                         ]
                     },
                     {
+                        "description": "Cmd+Down -> minimize window (Cmd+M)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Cmd+1..9 -> activate the Nth Dock item (follows Dock order)",
                         "manipulators": [
                             {

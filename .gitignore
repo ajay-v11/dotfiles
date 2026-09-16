@@ -1,0 +1,6 @@
+# Zed's local prompt-library database (binary LMDB + lock files) — machine
+# state, not config. Should never be versioned.
+zed/.config/zed/prompts/
+
+# macOS cruft
+.DS_Store

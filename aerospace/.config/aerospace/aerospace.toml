@@ -1,0 +1,96 @@
+# AeroSpace configuration
+# =========================================================================
+# Goal: instant, no-animation workspace switching to replace macOS Spaces.
+# Windows FLOAT by default (normal macOS behaviour) — AeroSpace is used only
+# to kill the Mission Control Spaces animation, not to tile.
+#
+# Keybindings are wired to match the muscle memory I already use:
+#   Option+Z / Option+X          -> previous / next workspace  (cycles)
+#   Option+Ctrl+1..9             -> jump straight to workspace N
+#   Option+Ctrl+Shift+1..9       -> move focused window to workspace N
+# Terminal Option+number (tabs), Cmd+number (Dock apps, via Karabiner) and
+# Cmd+Up (maximise, via Rectangle) are all left untouched.
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+
+# Config schema version (required by AeroSpace 0.18+).
+config-version = 2
+
+# Start AeroSpace at login so workspaces are always available.
+start-at-login = true
+
+after-login-command = []
+after-startup-command = []
+
+# Normalizations — harmless with floating windows; keep the defaults.
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Fallback tiling layout (only applies to any window that ISN'T floated).
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Keep the mouse sane when focus jumps between monitors.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Don't let AeroSpace unhide apps you've deliberately hidden (Cmd+H).
+automatically-unhide-macos-hidden-apps = false
+
+# ---------------------------------------------------------------------------
+# Float everything by default -> windows behave like normal macOS windows.
+# Remove this block later if you ever want real tiling like yabai.
+# ---------------------------------------------------------------------------
+[[on-window-detected]]
+if = 'true'
+run = 'layout floating'
+
+[key-mapping]
+preset = 'qwerty'
+
+# No gaps — irrelevant while floating, but set to 0 for when tiling is used.
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+# ---------------------------------------------------------------------------
+# Main mode bindings
+# ---------------------------------------------------------------------------
+[mode.main.binding]
+
+# Cycle workspaces left / right — replaces the old Karabiner Option+Z/X that
+# used to switch macOS Spaces. --wrap-around loops past the ends.
+alt-z = 'workspace --wrap-around prev'
+alt-x = 'workspace --wrap-around next'
+
+# Jump directly to a workspace (Option+Ctrl+N).
+alt-ctrl-1 = 'workspace 1'
+alt-ctrl-2 = 'workspace 2'
+alt-ctrl-3 = 'workspace 3'
+alt-ctrl-4 = 'workspace 4'
+alt-ctrl-5 = 'workspace 5'
+alt-ctrl-6 = 'workspace 6'
+alt-ctrl-7 = 'workspace 7'
+alt-ctrl-8 = 'workspace 8'
+alt-ctrl-9 = 'workspace 9'
+
+# Move the focused window to a workspace (Option+Ctrl+Shift+N).
+alt-ctrl-shift-1 = 'move-node-to-workspace 1'
+alt-ctrl-shift-2 = 'move-node-to-workspace 2'
+alt-ctrl-shift-3 = 'move-node-to-workspace 3'
+alt-ctrl-shift-4 = 'move-node-to-workspace 4'
+alt-ctrl-shift-5 = 'move-node-to-workspace 5'
+alt-ctrl-shift-6 = 'move-node-to-workspace 6'
+alt-ctrl-shift-7 = 'move-node-to-workspace 7'
+alt-ctrl-shift-8 = 'move-node-to-workspace 8'
+alt-ctrl-shift-9 = 'move-node-to-workspace 9'
+
+# Quick toggle back to the previous workspace (Option+Tab is AltTab, so this
+# lives on Option+Ctrl+0).
+alt-ctrl-0 = 'workspace-back-and-forth'
+
+# Reload this config without restarting (Option+Ctrl+R).
+alt-ctrl-r = 'reload-config'

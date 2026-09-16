@@ -12,6 +12,33 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Tap Left Command alone -> Mission Control (like F3)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "mission_control"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Caps Lock -> Escape (alone); Shift+Caps -> Caps Lock",
                         "manipulators": [
                             {

@@ -27,6 +27,7 @@ return {
  
    { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master', -- pin to the stable master API (the `main` rewrite drops `nvim-treesitter.configs`)
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`

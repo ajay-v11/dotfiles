@@ -13,18 +13,29 @@
 # all available config options and their default values.
 #
 theme="Abernathy"
-background-opacity = 0.89
+# Disabled for now — uncomment to restore the transparent background.
+# background-opacity = 0.89
 font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 16
 window-padding-x = 6
 window-padding-y = 6
+
+# Match kitty: solid (non-blinking) cursor, 10k lines of scrollback.
+cursor-style-blink = false
+scrollback-limit = 10000000
+# macOS uses native tabs; `tabs` tucks them into the title bar (closest to a
+# custom tab bar). kitty's bottom/powerline tab styling is not available here.
+macos-titlebar-style = tabs
 
 # Show the native title bar with the red / yellow / green traffic-light buttons
 window-decoration = true
 
-# Fullscreen fills the screen in place instead of a separate macOS Space,
-# and Cmd+Up toggles it (like Windows/Linux Super+Up maximise).
+# Cmd+Up maximises the window to fill the screen but keeps the title bar and
+# traffic-light buttons (not true fullscreen) — like Option-clicking the green.
+keybind = cmd+up=toggle_maximize
+# If you ever use real fullscreen (default cmd+enter), keep it in place
+# rather than animating into a separate macOS Space.
 macos-non-native-fullscreen = true
-keybind = cmd+up=toggle_fullscreen
 
 # Tab bar at bottom (tmux-like)
 gtk-tabs-location = bottom
@@ -36,6 +47,44 @@ gtk-titlebar = false
 window-theme = ghostty
 window-titlebar-background = #111416
 window-titlebar-foreground = #eeeeec
+
+# -------------------------------------------------------------------
+# Keybindings mirroring my kitty setup (tmux-style ctrl+shift+*).
+# Added on top of Ghostty's ⌘-based defaults (those still work too).
+# -------------------------------------------------------------------
+# Splits: \ = vertical (right), ' = horizontal (down)
+keybind = ctrl+shift+\=new_split:right
+keybind = ctrl+shift+'=new_split:down
+# Move focus between splits (vim hjkl)
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+# Resize the focused split
+keybind = ctrl+shift+alt+h=resize_split:left,10
+keybind = ctrl+shift+alt+l=resize_split:right,10
+keybind = ctrl+shift+alt+k=resize_split:up,10
+keybind = ctrl+shift+alt+j=resize_split:down,10
+# Zoom (toggle) the focused split, like kitty's ctrl+shift+z
+keybind = ctrl+shift+z=toggle_split_zoom
+# Tabs
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+q=close_surface
+keybind = ctrl+shift+w=close_tab:this
+keybind = ctrl+shift+right=next_tab
+keybind = ctrl+shift+left=previous_tab
+# Tab switching on Option+number (Cmd+1..9 is used globally by Karabiner to
+# open Dock apps). macos-option-as-alt lets Option register as Alt for these.
+macos-option-as-alt = true
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = alt+9=goto_tab:9
 # Additionally, each config option is also explained in detail
 # on Ghostty's website, at https://ghostty.org/docs/config.
 

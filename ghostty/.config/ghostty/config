@@ -18,7 +18,13 @@ font-family = "JetBrainsMono Nerd Font Mono"
 window-padding-x = 6
 window-padding-y = 6
 
-window-decoration = false
+# Show the native title bar with the red / yellow / green traffic-light buttons
+window-decoration = true
+
+# Fullscreen fills the screen in place instead of a separate macOS Space,
+# and Cmd+Up toggles it (like Windows/Linux Super+Up maximise).
+macos-non-native-fullscreen = true
+keybind = cmd+up=toggle_fullscreen
 
 # Tab bar at bottom (tmux-like)
 gtk-tabs-location = bottom

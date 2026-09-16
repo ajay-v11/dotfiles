@@ -1,0 +1,8 @@
+[user]
+	name = ajay-v11
+	email = ajay@orfus.in
+
+# Route github.com remotes through the github-orfus SSH host alias
+# (uses ~/.ssh/id_ed25519_orfus). Applies only to repos under ~/orfus.
+[url "git@github-orfus:"]
+	insteadOf = git@github.com:

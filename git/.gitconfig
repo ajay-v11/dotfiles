@@ -12,5 +12,6 @@
 
 # Company identity for anything under ~/orfus/ (ajay@orfus.in).
 # Trailing slash = applies to all repos beneath that directory.
+# ~ resolves on both macOS (/Users/ajay) and Linux (/home/ajay).
 [includeIf "gitdir:~/orfus/"]
 	path = ~/.gitconfig-orfus

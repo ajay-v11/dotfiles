@@ -1,7 +1,16 @@
 [user]
 	name = ajay-v11
 	email = heraappollo@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
 [http]
 	postBuffer = 524288000
 	lowSpeedLimit = 0
 	lowSpeedTime = 999999
+
+# Company identity for anything under ~/orfus/ (ajay@orfus.in).
+# Trailing slash = applies to all repos beneath that directory.
+[includeIf "gitdir:~/orfus/"]
+	path = ~/.gitconfig-orfus

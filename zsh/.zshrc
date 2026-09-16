@@ -180,7 +180,7 @@ fi
 
 # Enable vi mode
 bindkey -v
-source "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # study stream aliases
 # Requires https://github.com/caarlos0/timer to be installed. spd-say should ship with your distro

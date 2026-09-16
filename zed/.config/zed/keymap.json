@@ -106,14 +106,23 @@
     }
   },
 
-  // Dock navigation (terminal, panels, etc.)
+  // Dock navigation (terminal, panels, etc.) — pane nav works in any mode
   {
     "context": "Dock",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+
+  // Leader (space) shortcuts inside docks — MUST exclude insert mode, or
+  // typing a space-then-`e`/`t`/`a`/`g` in an editor docked here (e.g. the
+  // git commit message box) would trigger the dock toggle mid-word.
+  {
+    "context": "Dock && !(vim_mode == insert)",
+    "bindings": {
       "space g g": "git_panel::ToggleFocus",
       "space t t": "workspace::ToggleBottomDock",
       "space e": "workspace::ToggleLeftDock",

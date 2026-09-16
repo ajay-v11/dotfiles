@@ -241,3 +241,7 @@ pomo_stats () {
     echo "No stats logged yet."
   fi
 }
+
+export AWS_PROFILE=ajay-dk
+export AWS_DEFAULT_PROFILE=ajay-dk
+export AWS_PAGER=""

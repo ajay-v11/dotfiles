@@ -7,15 +7,45 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "unified",
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    }
+  },
   "project_panel": {
+    "dock": "left",
     "auto_fold_dirs": true,
     "indent_size": 10,
     "entry_spacing": "standard"
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": true
   },
   "agent_servers": {
+    "mistral-vibe": {
+      "type": "registry"
+    },
     "codex-acp": {
       "type": "registry"
     },
@@ -53,6 +83,7 @@
     "file_icons": true
   },
   "agent": {
+    "dock": "right",
     "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",

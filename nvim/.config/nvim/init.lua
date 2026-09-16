@@ -364,6 +364,9 @@ require('lazy').setup({
     },
   },
 }, {
+  -- No plugin here needs luarocks; disabling it silences the hererocks
+  -- "luarocks not installed" health error.
+  rocks = { enabled = false },
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',

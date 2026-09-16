@@ -4,12 +4,17 @@ return {
     dependencies = {
       -- Recommended for `ask()` and `select()`.
       -- Required for `toggle()`.
-      { 'folke/snacks.nvim', opts = { input = {}, picker = {} } },
+      { 'folke/snacks.nvim', opts = { input = {}, picker = {}, image = { enabled = false } } },
     },
     config = function()
       vim.g.opencode_opts = {
         -- Your configuration, if any — see `lua/opencode/config.lua`
       }
+
+      -- Route Neovim's input/select prompts through snacks (enabled above),
+      -- so rename/code-action dialogs are nicer and snacks health is happy.
+      vim.ui.input = require('snacks').input
+      vim.ui.select = require('snacks').picker.select
 
       -- Required for `vim.g.opencode_opts.auto_reload`
       vim.opt.autoread = true

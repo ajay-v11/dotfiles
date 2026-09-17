@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Keep the model picker to just opencode Zen + OpenAI.
+  // opencode auto-detects providers from env vars / creds (e.g. AWS -> amazon-bedrock),
+  // so we explicitly disable the noisy ones. This config is shared Mac<->Linux.
+  "disabled_providers": [
+    "amazon-bedrock",
+    "azure",
+    "google",
+    "google-vertex",
+    "google-vertex-anthropic",
+    "anthropic",
+    "openrouter",
+    "github-copilot",
+    "github-models",
+    "groq",
+    "mistral",
+    "cohere",
+    "deepseek",
+    "xai",
+    "fireworks-ai",
+    "togetherai",
+    "cerebras",
+    "perplexity",
+    "ollama",
+    "huggingface",
+    "deepinfra",
+    "vercel"
+  ]
+}
